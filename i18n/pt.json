@@ -1,0 +1,103 @@
+{
+  "header": {
+    "solution": "Soluções",
+    "how-works": "Como Funciona",
+    "about-us": "Equipe",
+    "about-app": "Produto",
+    "pricing": "Preços",
+    "login": "Entrar"
+  },
+  "hero": {
+    "badge": "Indústria 4.0 Têxtil",
+    "principal": "Máquinas que transformam qualidade em cada ponto.",
+    "subtitle": "Monitoramento IoT em tempo real, manutenção preditiva e insights de IA — feito para fábricas têxteis modernas.",
+    "demo": "Solicitar Demo",
+    "explore": "Explorar Soluções",
+    "stat1": "Monitoramento em tempo real",
+    "stat2": "Redução de paradas",
+    "stat3": "Aumento de produtividade"
+  },
+  "cta-top": {
+    "title": "Transforme sua indústria têxtil com a DyeTex",
+    "text": "Monitore, antecipe e responda antes que uma falha ocorra. Digitalize sua fábrica hoje!",
+    "demo": "Solicitar Demo"
+  },
+  "firstSection": {
+    "title": "Por que nos escolher?",
+    "text": "Na DyeTex, estamos comprometidos em fornecer soluções inovadoras e de alta qualidade para a indústria têxtil. Nossos produtos são projetados para melhorar a eficiência e a qualidade da sua produção.",
+    "cards-first": "Monitore o desempenho das máquinas em tempo real",
+    "cards-second": "Interface intuitiva e ferramentas precisas",
+    "cards-third": "Reduza paradas e aumente a produtividade",
+    "cards-fourth": "Identifique falhas e receba notificações",
+    "cards-fifth": "Análises avançadas, relatórios detalhados",
+    "cards-sixth": "Tecnologia IoT para desempenho das máquinas"
+  },
+  "secondSection": {
+    "title": "Como funciona?",
+    "text": "Nosso sistema é fácil de usar e integrar aos seus processos. Monitore o desempenho das máquinas em tempo real, receba alertas e gere relatórios detalhados."
+  },
+  "how-steps": {
+    "step1": "Conecte sensores IoT às suas máquinas",
+    "step2": "Visualize dados em tempo real no painel",
+    "step3": "Receba alertas de IA antes de falhas",
+    "step4": "Otimize a produtividade com relatórios inteligentes"
+  },
+  "about-the-team": {
+    "title": "Conheça a equipe DyeTex",
+    "text": "Uma equipe multidisciplinar dedicada a transformar a indústria têxtil."
+  },
+  "mission": {
+    "title": "Missão:",
+    "text": "Fornecer às empresas têxteis uma solução eficiente que otimize o desempenho das máquinas através de monitoramento em tempo real."
+  },
+  "vision": {
+    "title": "Visão:",
+    "text": "Tornar-se a plataforma líder da indústria têxtil, oferecendo uma solução que transforma a gestão de máquinas e o processo de produção."
+  },
+  "video": { "title": "Veja a DyeTex em ação" },
+  "appSection": {
+    "purpose": "A DyeTex impulsiona a eficiência operacional na indústria têxtil através de tecnologia avançada.",
+    "question-msg": "Procurando reduzir paradas e aumentar a eficiência?",
+    "with": "Com",
+    "answ-msg": "você obtém monitoramento em tempo real, alertas inteligentes e relatórios detalhados.",
+    "motivate-msg": "Experimente hoje e transforme sua fábrica"
+  },
+  "btn-call-action": { "join-now": "Participar" },
+  "pricing": {
+    "per-month": "/mês",
+    "popular": "Mais Popular",
+    "free-title": "Grátis",
+    "free-desc": "Ideal para testar a experiência de monitoramento",
+    "free-f1": "Até 2 máquinas",
+    "free-f2": "Painel em tempo real",
+    "free-f3": "Alertas básicos",
+    "free-f4": "Suporte por e-mail",
+    "pro-title": "Pro",
+    "pro-desc": "Para profissionais gerenciando várias máquinas",
+    "pro-f1": "Máquinas ilimitadas",
+    "pro-f2": "Alertas inteligentes de IA",
+    "pro-f3": "Análises avançadas",
+    "pro-f4": "Sincronização em tempo real",
+    "pro-f5": "Acesso ao app mobile",
+    "pro-f6": "Suporte prioritário",
+    "enterprise-title": "Enterprise",
+    "custom": "Personalizado",
+    "enterprise-desc": "Para grandes plantas industriais",
+    "ent-f1": "Painel multi-fábrica",
+    "ent-f2": "Integrações personalizadas",
+    "ent-f3": "Gerente de conta dedicado",
+    "ent-f4": "SLA & suporte 24/7",
+    "get-started": "Começar",
+    "contact-sales": "Contatar Vendas"
+  },
+  "subscribe": {
+    "title": "Mantenha-se à frente da indústria",
+    "subtitle": "Inscreva-se para receber atualizações de produto e acesso antecipado a novos recursos.",
+    "button": "Inscrever-se",
+    "note": "Sem spam. Cancele quando quiser."
+  },
+  "footer": {
+    "terms-use": "Termos de uso",
+    "privacy-policy": "Política de Privacidade"
+  }
+}

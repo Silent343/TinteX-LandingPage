@@ -1,63 +1,103 @@
 {
-    "header": {
-        "solution": "Solutions",
-        "how-works": "Fonctionnement",
-        "about-us": "À propos de l'équipe",
-        "contact": "Contact",
-        "about-app": "À propos du produit"
-    },
-    "web-title": {
-        "principal": "Des machines qui transforment la qualité à chaque point"
-    },
-    "firstSection": {
-        "title": "Pourquoi nous choisir ?",
-        "text": "Chez DyeTex, nous nous engageons à fournir des solutions innovantes et de haute qualité pour l'industrie textile. Nos produits sont conçus pour améliorer l'efficacité et la qualité de votre production. Offrant des solutions telles que :",
-        "cards-first": "Surveillez les performances des machines en temps réel",
-        "cards-second": "Interface intuitive et outils précis",
-        "cards-third": "Réduction des temps d'arrêt et augmentation de la productivité",
-        "cards-fourth": "Identifiez les pannes potentielles et recevez des notifications",
-        "cards-fifth": "Analyses avancées et rapports détaillés",
-        "cards-sixth": "Améliorez les performances de vos machines grâce à la technologie IoT"
-    },
-    "secondSection": {
-        "title": "Comment ça fonctionne ?",
-        "text": "Notre système est conçu pour être facile à utiliser et à intégrer à vos processus existants. Grâce à notre interface intuitive, vous pouvez surveiller les performances de vos machines en temps réel, recevoir des alertes sur les pannes potentielles et générer des rapports détaillés sur l'efficacité de la production."
-    },
-    "mission": {
-        "title": "Mission",
-        "text": "fournir aux entreprises textiles une solution efficace qui optimise les performances des machines grâce à une surveillance en temps réel, augmentant ainsi la productivité et réduisant les temps d'arrêt grâce à des notifications de maintenance opportunes."
-    },
-    "vision": {
-        "title": "Vision",
-        "text": "devenir la plateforme de référence pour l'industrie textile, en offrant une solution adaptée qui transforme la gestion des machines et le processus de production, contribuant à la croissance industrielle et à la compétitivité des entreprises textiles."
-    },
-    "fouthSection": {
-        "title": "Informations de Contact",
-        "name": "Nom",
-        "email": "E-mail",
-        "your-subject": "Objet",
-        "message": "Message",
-        "send": "Envoyer"
-    },
-    "appSection": {
-        "question-msg": "Vous cherchez à réduire les temps d'arrêt, diminuer les coûts et améliorer l'efficacité de vos machines ?",
-        "with": "Avec",
-        "answ-msg": "vous bénéficiez d'une surveillance en temps réel, d'alertes intelligentes et de rapports détaillés pour faire passer vos opérations au niveau supérieur.",
-        "motivate-msg": "Essayez-la dès aujourd'hui et transformez votre usine en une usine intelligente",
-        "purpose": "DyeTex vise à améliorer l'efficacité opérationnelle dans l'industrie textile grâce à l'utilisation de technologies avancées"
-    },
-    "footer": {
-        "terms-use": "Conditions d'utilisation",
-        "privacy-policy": "Politique de confidentialité"
-    },
-    "about-the-team": {
-        "title": "Rencontrez l'équipe derrière DyeTex",
-        "text": "Une équipe multidisciplinaire dédiée à transformer l'industrie textile grâce à des solutions intelligentes."
-    },
-    "btn-call-action": {
-        "join-now": "Rejoindre maintenant",
-        "request-demo": "Demander une démo",
-        "transform": "Transformez votre industrie textile avec DyeTex",
-        "textScnd": "Surveillez, anticipez et réagissez avant qu'une panne ne survienne. Numérisez votre usine dès aujourd'hui !"
-    }
+  "header": {
+    "solution": "Solutions",
+    "how-works": "Comment ça marche",
+    "about-us": "Équipe",
+    "about-app": "Produit",
+    "pricing": "Tarifs",
+    "login": "Connexion"
+  },
+  "hero": {
+    "badge": "Industrie 4.0 Textile",
+    "principal": "Des machines qui transforment la qualité dans chaque point.",
+    "subtitle": "Surveillance IoT en temps réel, maintenance prédictive et intelligence artificielle — conçu pour les usines textiles modernes.",
+    "demo": "Demander une démo",
+    "explore": "Explorer les solutions",
+    "stat1": "Surveillance en temps réel",
+    "stat2": "Réduction des temps d'arrêt",
+    "stat3": "Augmentation de la productivité"
+  },
+  "cta-top": {
+    "title": "Transformez votre industrie textile avec DyeTex",
+    "text": "Surveillez, anticipez et réagissez avant qu'une panne ne se produise. Numérisez votre usine dès aujourd'hui.",
+    "demo": "Demander une démo"
+  },
+  "firstSection": {
+    "title": "Pourquoi nous choisir ?",
+    "text": "Chez DyeTex, nous nous engageons à fournir des solutions innovantes et de haute qualité pour l'industrie textile. Nos produits sont conçus pour améliorer l'efficacité et la qualité de votre production.",
+    "cards-first": "Surveillez les performances en temps réel",
+    "cards-second": "Interface intuitive et outils précis",
+    "cards-third": "Réduisez les temps d'arrêt et augmentez la productivité",
+    "cards-fourth": "Identifiez les pannes et recevez des notifications",
+    "cards-fifth": "Analyses avancées, rapports détaillés",
+    "cards-sixth": "Technologie IoT pour vos machines"
+  },
+  "secondSection": {
+    "title": "Comment ça marche ?",
+    "text": "Notre système est conçu pour être facile à utiliser et à intégrer dans vos processus existants. Surveillez les performances, recevez des alertes et générez des rapports détaillés."
+  },
+  "how-steps": {
+    "step1": "Connectez des capteurs IoT à vos machines",
+    "step2": "Visualisez les données en temps réel",
+    "step3": "Recevez des alertes IA avant les pannes",
+    "step4": "Optimisez la productivité avec des rapports intelligents"
+  },
+  "about-the-team": {
+    "title": "Rencontrez l'équipe DyeTex",
+    "text": "Une équipe pluridisciplinaire dédiée à la transformation de l'industrie textile."
+  },
+  "mission": {
+    "title": "Mission :",
+    "text": "Fournir aux entreprises textiles une solution efficace qui optimise les performances des machines grâce à la surveillance en temps réel, augmentant la productivité et réduisant les temps d'arrêt."
+  },
+  "vision": {
+    "title": "Vision :",
+    "text": "Devenir la plateforme leader de l'industrie textile, offrant une solution qui transforme la gestion des machines et le processus de production."
+  },
+  "video": { "title": "Voir DyeTex en action" },
+  "appSection": {
+    "purpose": "DyeTex stimule l'efficacité opérationnelle dans l'industrie textile grâce à une technologie avancée.",
+    "question-msg": "Vous cherchez à réduire les temps d'arrêt et à augmenter l'efficacité ?",
+    "with": "Avec",
+    "answ-msg": "vous obtenez une surveillance en temps réel, des alertes intelligentes et des rapports détaillés.",
+    "motivate-msg": "Essayez-le aujourd'hui et transformez votre usine"
+  },
+  "btn-call-action": { "join-now": "Rejoindre" },
+  "pricing": {
+    "per-month": "/mois",
+    "popular": "Le plus populaire",
+    "free-title": "Gratuit",
+    "free-desc": "Idéal pour tester l'expérience de surveillance",
+    "free-f1": "Jusqu'à 2 machines",
+    "free-f2": "Tableau de bord en temps réel",
+    "free-f3": "Alertes de base",
+    "free-f4": "Support par e-mail",
+    "pro-title": "Pro",
+    "pro-desc": "Pour les professionnels gérant plusieurs machines",
+    "pro-f1": "Machines illimitées",
+    "pro-f2": "Alertes IA intelligentes",
+    "pro-f3": "Analyses avancées",
+    "pro-f4": "Synchronisation en temps réel",
+    "pro-f5": "Accès application mobile",
+    "pro-f6": "Support prioritaire",
+    "enterprise-title": "Entreprise",
+    "custom": "Sur mesure",
+    "enterprise-desc": "Pour les grandes usines industrielles",
+    "ent-f1": "Tableau de bord multi-usines",
+    "ent-f2": "Intégrations personnalisées",
+    "ent-f3": "Gestionnaire de compte dédié",
+    "ent-f4": "SLA & support 24/7",
+    "get-started": "Commencer",
+    "contact-sales": "Contacter les ventes"
+  },
+  "subscribe": {
+    "title": "Restez en avance sur l'industrie",
+    "subtitle": "Abonnez-vous pour recevoir des mises à jour produit et un accès anticipé aux nouvelles fonctionnalités.",
+    "button": "S'abonner",
+    "note": "Pas de spam. Désabonnement à tout moment."
+  },
+  "footer": {
+    "terms-use": "Conditions d'utilisation",
+    "privacy-policy": "Politique de confidentialité"
+  }
 }

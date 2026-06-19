@@ -1,63 +1,103 @@
 {
-    "header": {
-        "solution": "Solutions",
-        "how-works": "How Works?",
-        "about-us": "About the Team",
-        "contact": "Contact",
-        "about-app": "About the Product"
-    },
-    "web-title": {
-        "principal": "Machines that transform quality into every stitch"
-    },
-    "firstSection": {
-        "title": "Why choose us?",
-        "text": "At DyeTex, we are committed to providing innovative, high-quality solutions for the textile industry. Our products are designed to improve the efficiency and quality of your production. Offering solutions as:",
-        "cards-first": "Monitor machine performance in real time",
-        "cards-second": "Intuitive interface and precise tools",
-        "cards-third": "Reduce downtime and increase productivity",
-        "cards-fourth": "Identify potential failures and receive notifications",
-        "cards-fifth": "Advanced analytics and detailed reports",
-        "cards-sixth": "Increase the performance of your machinery through IoT technology"
-    },
-    "secondSection":{
-        "title": "How does it work?",
-        "text": "Our system is designed to be easy to use and integrate into your existing processes. With our intuitive interface, you can monitor the performance of your machines in real time, receive alerts about potential failures and generate detailed reports on production efficiency."
-    },
-    "mission": {
-        "title": "Mission",
-        "text": "provide textile companies with an efficient solution that optimizes machine performance through real-time monitoring, thereby increasing productivity and reducing downtime through timely maintenance notifications."
-    },
-    "vision":{
-        "title": "Vision",
-        "text": "become the leading platform for the textile industry, offering a suitable solution that transforms the management of machinery and the production process, contributing to industrial growth and the competitiveness of textile companies."
-    },
-    "fouthSection": {
-        "title": "Contact Information",
-        "name": "Name",
-        "email": "Email",
-        "your-subject": "Your Subject",
-        "message": "Message",
-        "send": "send"
-    },
-    "appSection": {
-        "question-msg": "Looking to reduce downtime, cut costs, and boost machine efficiency?",
-        "with": "With",
-        "answ-msg": "you get real-time monitoring, smart alerts, and detailed reports to take your operations to the next level.",
-        "motivate-msg": "Try it today and turn your factory into a smart facility",
-        "purpose": "DyeTex aims to drive operational efficiency in the textile industry through the use of advanced technology"
-    },
-    "footer":{
-        "terms-use": "Terms of Use",
-        "privacy-policy": "Privacy Policy"
-    },
-    "about-the-team":{
-        "title": "Meet the team behind DyeTex",
-        "text": "A multidisciplinary team dedicated to transforming the textile industry through smart solutions."
-    },
-    "btn-call-action":{
-        "join-now": "Join Now",
-        "request-demo": "Request Demo",
-        "transform": "Transform your textile industry with DyeTex",
-        "textScnd": "Monitor, anticipate, and respond before a failure occurs. Digitize your plant today!"
-    }
+  "header": {
+    "solution": "Solutions",
+    "how-works": "How it Works",
+    "about-us": "Team",
+    "about-app": "Product",
+    "pricing": "Pricing",
+    "login": "Login"
+  },
+  "hero": {
+    "badge": "Industry 4.0 for Textile",
+    "principal": "Machines that transform quality into every stitch.",
+    "subtitle": "Real-time IoT monitoring, predictive maintenance, and AI insights — built for modern textile factories.",
+    "demo": "Request Demo",
+    "explore": "Explore Solutions",
+    "stat1": "Real-time monitoring",
+    "stat2": "Downtime reduction",
+    "stat3": "Productivity boost"
+  },
+  "cta-top": {
+    "title": "Transform your textile industry with DyeTex",
+    "text": "Monitor, anticipate, and respond before a failure occurs. Digitize your plant today.",
+    "demo": "Request Demo"
+  },
+  "firstSection": {
+    "title": "Why choose us?",
+    "text": "At DyeTex, we are committed to providing innovative, high-quality solutions for the textile industry. Our products are designed to improve the efficiency and quality of your production.",
+    "cards-first": "Monitor machine performance in real time",
+    "cards-second": "Intuitive interface and precise tools",
+    "cards-third": "Reducing downtime and increasing productivity",
+    "cards-fourth": "Identify potential failures and receive notifications",
+    "cards-fifth": "Advanced analytics, detailed reports",
+    "cards-sixth": "IoT technology for machinery performance"
+  },
+  "secondSection": {
+    "title": "How does it work?",
+    "text": "Our system is designed to be easy to use and integrate into your existing processes. Monitor machine performance in real time, receive alerts about potential failures, and generate detailed reports on production efficiency."
+  },
+  "how-steps": {
+    "step1": "Connect IoT sensors to your machines",
+    "step2": "Visualize real-time data on dashboard",
+    "step3": "Receive AI alerts before failures occur",
+    "step4": "Optimize productivity with smart reports"
+  },
+  "about-the-team": {
+    "title": "Meet the team behind DyeTex",
+    "text": "A multidisciplinary team dedicated to transforming the textile industry through smart solutions."
+  },
+  "mission": {
+    "title": "Mission:",
+    "text": "Provide textile companies with an efficient solution that optimizes machine performance through real-time monitoring, increasing productivity and reducing downtime through timely maintenance notifications."
+  },
+  "vision": {
+    "title": "Vision:",
+    "text": "Become the leading platform for the textile textile industry, offering a solution that transforms the management of machinery and the production process."
+  },
+  "video": { "title": "See DyeTex in action" },
+  "appSection": {
+    "purpose": "DyeTex drives operational efficiency in the textile industry through advanced technology.",
+    "question-msg": "Looking to reduce downtime, cut costs, and boost machine efficiency?",
+    "with": "With",
+    "answ-msg": "you get real-time monitoring, smart alerts, and detailed reports to take your operations to the next level.",
+    "motivate-msg": "Try it today and turn your factory into a smart facility"
+  },
+  "btn-call-action": { "join-now": "Join Now" },
+  "pricing": {
+    "per-month": "/mo",
+    "popular": "Most Popular",
+    "free-title": "Free",
+    "free-desc": "Ideal to test the unified monitoring experience",
+    "free-f1": "Connect up to 2 machines",
+    "free-f2": "Real-time dashboard",
+    "free-f3": "Basic alerts",
+    "free-f4": "Email support",
+    "pro-title": "Pro",
+    "pro-desc": "For professionals managing multiple machines",
+    "pro-f1": "Unlimited machines",
+    "pro-f2": "Smart AI alerts",
+    "pro-f3": "Advanced analytics",
+    "pro-f4": "Real-time sync",
+    "pro-f5": "Mobile app access",
+    "pro-f6": "Priority support",
+    "enterprise-title": "Enterprise",
+    "custom": "Custom",
+    "enterprise-desc": "For large-scale industrial plants",
+    "ent-f1": "Multi-plant dashboard",
+    "ent-f2": "Custom integrations",
+    "ent-f3": "Dedicated account manager",
+    "ent-f4": "SLA & 24/7 support",
+    "get-started": "Get Started",
+    "contact-sales": "Contact Sales"
+  },
+  "subscribe": {
+    "title": "Stay ahead of the industry",
+    "subtitle": "Subscribe to receive product updates, industry insights, and early access to new features.",
+    "button": "Subscribe",
+    "note": "No spam. Unsubscribe anytime."
+  },
+  "footer": {
+    "terms-use": "Terms of use",
+    "privacy-policy": "Privacy Policy"
+  }
 }
