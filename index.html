@@ -1,505 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>DyeTex</title>
-        <link rel="icon" href="Img/dyeTexLogo.png" type="image/x-icon">
-        <link rel="stylesheet" href="style/style.css">
-    </head>
-    <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <img src="Img/dyeTexLogo.png" alt="Image Logo">
-                    <p>DyeTex</p>
-                </div>
-                <div class="main-nav">
-                    <ul class="nav-links">
-                        <li>
-                            <a class="language-switcher">
-                                <span class="changeLang">EN</span> 
-                                &nbsp;
-                                <i class="fa-solid fa-angle-down arrow-language"></i>
-                            </a>
-                            <div class="languageBox">
-                                <span data-language="en" class="lng-initial">EN</span>
-                                <span data-language="es" class="line-spare lng-initial">ES</span>
-                                <span data-language="fr" class="lng-initial">FR</span>
-                            </div>
-                        </li>
-                        <li><a href="#solution" class="nav-link firstChild" data-section="header" data-value="solution">Solutions</a></li>
-                        <li><a href="#how-Works" class="nav-link" data-section="header" data-value="how-works">How Works?</a></li>
-                        <li><a href="#about-us" class="nav-link" data-section="header" data-value="about-us">About The Team</a></li>
-                        <li><a href="#about-app" class="nav-link" data-section="header" data-value="about-app">About The Product</a></li>
-                        <li><a href="#contact" class="nav-link" data-section="header" data-value="contact">Contact</a></li>
-                        <li><a href="login.html" class="nav-link" >Login</a></li>
-                    </ul>
-                </div>
-                <div class="menu-toggle" id="mobile-menu">
-                    <i class="fa-solid fa-bars bar-menu"></i>
-                    <ul class="nav-links-tg">
-                        <li><a href="#solution" class="nav-link" data-section="header" data-value="solution">Solutions</a></li>
-                        <li><a href="#how-works" class="nav-link" data-section="header" data-value="how-works">How Works?</a></li>
-                        <li><a href="#about-us" class="nav-link" data-section="header" data-value="about-us">About The Team</a></li>
-                        <li><a href="#about-app" class="nav-link" data-section="header" data-value="about-app">About The Product</a></li>
-                        <li><a href="#contact" class="nav-link" data-section="header" data-value="contact">Contact</a></li>
-                        <li><i class="fast-fa user"><a href="login.html" class="nav-link" >Login</a></i></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DyeTex — Smart Textile Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
 
-        <section id="banner">
-            <div>
-                <video src="Img/mchn.mp4" autoplay loop muted type="video/mp4"></video>
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#00E5A0" stroke-width="2"/>
+            <path d="M8 16 L12 10 L16 14 L20 8 L24 16" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="20" r="3" fill="#00E5A0"/>
+          </svg>
+        </div>
+        <span class="logo-text">DyeTex</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#solution" class="nav-link" data-i18n="nav.solutions">Solutions</a></li>
+        <li><a href="#how-works" class="nav-link" data-i18n="nav.howWorks">How It Works</a></li>
+        <li><a href="#about-us" class="nav-link" data-i18n="nav.team">The Team</a></li>
+        <li><a href="#about-app" class="nav-link" data-i18n="nav.product">Product</a></li>
+        <li>
+          <div class="lang-selector">
+            <button class="lang-btn" id="langBtn">
+              <span id="currentLang">EN</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+              <button data-lang="en">English</button>
+              <button data-lang="es">Español</button>
+              <button data-lang="fr">Français</button>
+              <button data-lang="pt">Português</button>
             </div>
-            <div class="vector">
-                <img src="Img/Vector2.png" alt="">
+          </div>
+        </li>
+        <li><a href="login.html" class="nav-cta" data-i18n="nav.login">Login</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════ HERO ════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <video autoplay loop muted playsinline class="hero-video">
+        <source src="Img/mchn.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Animated circuit lines -->
+    <div class="circuit-lines" aria-hidden="true">
+      <svg class="circuit-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path class="circuit-path" d="M0,450 L200,450 L200,300 L400,300 L400,500 L700,500 L700,200 L1000,200 L1000,600 L1440,600"/>
+        <path class="circuit-path" d="M0,200 L150,200 L150,350 L350,350 L350,150 L600,150 L600,400 L900,400 L900,100 L1440,100"/>
+        <circle class="circuit-dot" cx="200" cy="450" r="5"/>
+        <circle class="circuit-dot" cx="400" cy="300" r="5"/>
+        <circle class="circuit-dot" cx="700" cy="500" r="5"/>
+        <circle class="circuit-dot" cx="1000" cy="200" r="5"/>
+        <circle class="circuit-dot" cx="150" cy="200" r="5"/>
+        <circle class="circuit-dot" cx="600" cy="150" r="5"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero.badge">IoT-Powered Textile Intelligence</span>
+      </div>
+      <h1 class="hero-title reveal-up delay-1">
+        <span data-i18n="hero.title1">Machines that</span><br>
+        <span class="accent" data-i18n="hero.title2">transform quality</span><br>
+        <span data-i18n="hero.title3">into every stitch.</span>
+      </h1>
+      <p class="hero-desc reveal-up delay-2" data-i18n="hero.desc">
+        Monitor, anticipate, and respond before a failure occurs.<br>Digitize your textile plant today.
+      </p>
+      <div class="hero-actions reveal-up delay-3">
+        <a href="https://dytex-fn8rqq4mw-hectors-projects-a1cfc66e.vercel.app" class="btn-primary" data-i18n="hero.cta">Request Demo</a>
+        <a href="#how-works" class="btn-ghost">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span data-i18n="hero.watch">See how it works</span>
+        </a>
+      </div>
+
+      <div class="hero-stats reveal-up delay-4">
+        <div class="stat">
+          <span class="stat-num" data-target="40">0</span><span class="stat-pct">%</span>
+          <span class="stat-label" data-i18n="stats.downtime">Downtime reduction</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="98">0</span><span class="stat-pct">%</span>
+          <span class="stat-label" data-i18n="stats.uptime">Machine uptime</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="60">0</span><span class="stat-pct">s</span>
+          <span class="stat-label" data-i18n="stats.alert">Alert response</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave shape -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="#0A0A0F"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ SOLUTIONS ══════════════════════════ -->
+  <section id="solution" class="section-dark">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow" data-i18n="solutions.eyebrow">What we solve</span>
+        <h2 class="section-title" data-i18n="solutions.title">Industrial intelligence<br>for every loom</h2>
+        <p class="section-desc" data-i18n="solutions.desc">Our platform connects directly to your existing machinery. No replacements needed — just smart sensors and adaptive modules that transform your plant into a data-driven operation.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal-up" data-delay="0">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="3" stroke="#00E5A0" stroke-width="1.5"/><path d="M7 18l4-4 4 4 6-8" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-i18n="features.realtime.title">Real-Time Monitoring</h3>
+          <p data-i18n="features.realtime.desc">Track RPM, temperature, vibration and output for every machine in your plant, live on a single dashboard.</p>
+        </div>
+        <div class="feature-card reveal-up" data-delay="1">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L4 10v8l10 6 10-6v-8L14 4z" stroke="#00E5A0" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 4v16M4 10l10 6 10-6" stroke="#00E5A0" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-i18n="features.predictive.title">Predictive Alerts</h3>
+          <p data-i18n="features.predictive.desc">AI detects anomalies before they cause failures. Receive alerts by SMS or email with recommended actions.</p>
+        </div>
+        <div class="feature-card reveal-up" data-delay="2">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="8" width="20" height="14" rx="2" stroke="#00E5A0" stroke-width="1.5"/><path d="M4 12h20M10 8V6a4 4 0 018 0v2" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="features.reports.title">Automated Reports</h3>
+          <p data-i18n="features.reports.desc">Daily, weekly or monthly efficiency reports generated automatically. Export to PDF, share with your team instantly.</p>
+        </div>
+        <div class="feature-card reveal-up" data-delay="3">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#00E5A0" stroke-width="1.5"/><path d="M14 9v5l3 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="features.maintenance.title">Maintenance Scheduler</h3>
+          <p data-i18n="features.maintenance.desc">Plan preventive maintenance based on real usage data, not guesswork. Reduce unplanned stops by up to 40%.</p>
+        </div>
+        <div class="feature-card reveal-up" data-delay="4">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 22l4-8 4 4 4-6 4 10" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="22" height="22" rx="2" stroke="#00E5A0" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-i18n="features.analytics.title">Advanced Analytics</h3>
+          <p data-i18n="features.analytics.desc">Visualize production KPIs, output efficiency and quality metrics with interactive charts and heat maps.</p>
+        </div>
+        <div class="feature-card reveal-up" data-delay="5">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="8" height="8" rx="1" stroke="#00E5A0" stroke-width="1.5"/><rect x="16" y="4" width="8" height="8" rx="1" stroke="#00E5A0" stroke-width="1.5"/><rect x="4" y="16" width="8" height="8" rx="1" stroke="#00E5A0" stroke-width="1.5"/><rect x="16" y="16" width="8" height="8" rx="1" stroke="#00E5A0" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-i18n="features.iot.title">IoT Integration</h3>
+          <p data-i18n="features.iot.desc">Compatible with existing machinery. Install non-invasive sensors in hours without stopping production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ HOW IT WORKS ════════════════════════ -->
+  <section id="how-works" class="section-mid">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow" data-i18n="howWorks.eyebrow">The process</span>
+        <h2 class="section-title" data-i18n="howWorks.title">Up and running<br>in 3 steps</h2>
+      </div>
+
+      <div class="steps-container">
+        <div class="step reveal-left" data-delay="0">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3 data-i18n="steps.s1.title">Install Smart Sensors</h3>
+            <p data-i18n="steps.s1.desc">Our technicians install non-invasive IoT sensors on your existing looms, dyeing machines and knitting equipment. Zero downtime during installation — your plant keeps running.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step reveal-left" data-delay="1">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3 data-i18n="steps.s2.title">Connect to the Platform</h3>
+            <p data-i18n="steps.s2.desc">Data flows in real-time to your DyeTex dashboard. See every machine's status, efficiency score and anomaly indicators from any device, anywhere.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step reveal-left" data-delay="2">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3 data-i18n="steps.s3.title">Act on Intelligence</h3>
+            <p data-i18n="steps.s3.desc">Receive predictive alerts, schedule maintenance, generate reports and make decisions backed by data — before a single stitch is lost.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-embed reveal-up">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/R08nqhHqrGA?si=-peJ87z0FfUqAJOO" title="DyeTex Demo" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ ABOUT TEAM ═════════════════════════ -->
+  <section id="about-us" class="section-dark">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <span class="section-eyebrow" data-i18n="team.eyebrow">The people</span>
+          <h2 class="section-title" data-i18n="team.title">Built by engineers,<br>for engineers</h2>
+          <p data-i18n="team.desc">We are a multidisciplinary team of software engineers, IoT specialists and textile industry veterans based in Lima, Peru. We built DyeTex because we watched plants lose thousands of dollars to preventable failures.</p>
+          <div class="team-values">
+            <div class="value-item">
+              <span class="value-dot"></span>
+              <span data-i18n="team.v1">Industry-first design thinking</span>
             </div>
-            <div class="slogan">
-                <h1 data-section="web-title" data-value="principal">Machines that transform quality into every stitch.</h1>
+            <div class="value-item">
+              <span class="value-dot"></span>
+              <span data-i18n="team.v2">Real-world sensor deployments</span>
             </div>
-        </section>    
-        
-        <main>
-            <section id="cta">
-                <h2 data-section="btn-call-action" data-value="transform">Transform your textile industry with DyeTex</h2>
-                <p data-section="btn-call-action" data-value="textScnd">Monitor, anticipate, and respond before a failure occurs. Digitize your plant today!</p>
-                <a href="https://dytex-fn8rqq4mw-hectors-projects-a1cfc66e.vercel.app" class="cta-button" data-section="btn-call-action" data-value="request-demo">Request Demo</a>
-            </section>
-
-
-
-        </section>
-
-            <div class="separe-title" id="solution">
-                <span class="line"></span>
-                <span class="text" data-section="header" data-value="solution">Solutions</span>
-                <span class="line"></span>
+            <div class="value-item">
+              <span class="value-dot"></span>
+              <span data-i18n="team.v3">Continuous iteration with clients</span>
             </div>
+          </div>
+        </div>
+        <div class="about-image reveal-right">
+          <div class="image-frame">
+            <img src="Img/equipo.png" alt="DyeTex team" loading="lazy">
+            <div class="image-border"></div>
+          </div>
+        </div>
+      </div>
 
-            <section class="solution">
-                <div class="solution-container">
-                    <img src="Img/descarga (7).jpeg" alt="">
-                    <div class="txtSolution">
-                        <h2 data-section="firstSection" data-value="title">Why choose us?</h2>
-                        <p data-section="firstSection" data-value="text">
-                            At DyeTex, we are committed to providing innovative, high-quality solutions for the textile industry. Our products are designed to improve the efficiency and quality of your production. Offering solutions as:
-                        </p>
-                        <div class="carousel-container">
-                            <div class="carousel-cards">
-                                <div class="solution-card" data-section="firstSection" data-value="cards-first">
-                                    Monitor machine performance in real time
-                                </div>
-                                <div class="solution-card" data-section="firstSection" data-value="cards-second">
-                                    Intuitive interface and precise tools
-                                </div>
-                                <div class="solution-card" data-section="firstSection" data-value="cards-third">
-                                    Reducing downtime and increasing productivity
-                                </div>
-                                <div class="solution-card" data-section="firstSection" data-value="cards-fourth">
-                                    Identify potential failures and receive notifications
-                                </div>
-                                <div class="solution-card" data-section="firstSection" data-value="cards-fifth">
-                                    Advanced analytics, detailed reports
-                                </div>
-                                <div class="solution-card" data-section="firstSection" data-value="cards-sixth">
-                                    Increase the performance of your machinery through IoT technology
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-            </section>
+      <div class="mission-vision">
+        <div class="mv-card reveal-up" data-delay="0">
+          <div class="mv-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L4 10v12l12 6 12-6V10L16 4z" stroke="#00E5A0" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-i18n="mission.title">Mission</h3>
+          <p data-i18n="mission.text">Provide textile companies with efficient solutions that optimize machine performance through real-time monitoring, increasing productivity and reducing downtime through timely maintenance notifications.</p>
+        </div>
+        <div class="mv-card reveal-up" data-delay="1">
+          <div class="mv-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#00E5A0" stroke-width="1.5"/><path d="M16 8v8l5 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="vision.title">Vision</h3>
+          <p data-i18n="vision.text">Become the leading platform for the textile industry, transforming machinery management and production processes, contributing to industrial growth and competitiveness across Latin America.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="separe-title" id="how-Works">
-                <span class="line"></span>
-                <span class="text"  data-section="header" data-value="how-works">How Works?</span>
-                <span class="line"></span>
-            </div>
+  <!-- ════════════════════════ ABOUT PRODUCT ════════════════════════ -->
+  <section id="about-app" class="section-mid">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow" data-i18n="product.eyebrow">The platform</span>
+        <h2 class="section-title" data-i18n="product.title">Every screen built<br>for the plant floor</h2>
+        <p class="section-desc" data-i18n="product.desc">DyeTex drives operational efficiency in the textile industry through advanced technology. Real-time monitoring, smart alerts, and detailed reports — all in one place.</p>
+      </div>
 
-            <section class="how-Works">
-                <div class="how-Works-container">
-                    <div class="txtHowWorks">
-                        <h2 data-section="secondSection" data-value="title">How does it work?</h2>
-                        <p data-section="secondSection" data-value="text">Our system is designed to be easy to use and integrate into your existing processes. With our intuitive interface, you can monitor the performance of your machines in real time, receive alerts about potential failures and generate detailed reports on production efficiency.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="799.031" height="618.114" viewBox="0 0 799.031 618.114" role="img" artist="Katerina Limpitsouni" source="https://undraw.co/">
-                        <g id="Group_212" data-name="Group 212" transform="translate(-560 -231)">
-                          <path id="Path_782-6161" data-name="Path 782" d="M15.18,488.763c0,.872.478,1.573,1.073,1.573h535.1c.6,0,1.073-.7,1.073-1.573s-.478-1.573-1.073-1.573H16.253C15.658,487.191,15.18,487.891,15.18,488.763Z" transform="translate(675.479 358.778)" fill="#ccc"/>
-                          <rect id="Rectangle_253" data-name="Rectangle 253" width="19.105" height="3.371" transform="translate(865.162 842.354)" fill="#b6b3c5"/>
-                          <rect id="Rectangle_254" data-name="Rectangle 254" width="19.105" height="3.371" transform="translate(1034.295 842.916)" fill="#b6b3c5"/>
-                          <path id="Path_783-6162" data-name="Path 783" d="M352.955,370.945a27.529,27.529,0,0,1-54.321,0H229.146V521.536h193.3V370.945H352.955Z" transform="translate(633.72 321.38)" fill="#d6d6e3"/>
-                          <rect id="Rectangle_255" data-name="Rectangle 255" width="193.296" height="5.242" transform="translate(863.43 830.985)" fill="#090814"/>
-                          <path id="Path_784-6163" data-name="Path 784" d="M788.255,487.17H10.776A10.788,10.788,0,0,1,0,476.394V32.688A10.788,10.788,0,0,1,10.776,21.911H788.255a10.789,10.789,0,0,1,10.776,10.776V476.394a10.789,10.789,0,0,1-10.776,10.776Z" transform="translate(560 209.089)" fill="#090814"/>
-                          <rect id="Rectangle_256" data-name="Rectangle 256" width="760.822" height="429.297" transform="translate(579.547 248.98)" fill="#fff"/>
-                          <g id="Group_209" data-name="Group 209" transform="translate(662.881 329.557)">
-                            <rect id="Rectangle_774" data-name="Rectangle 774" width="149.174" height="113.965" rx="8" transform="translate(445.471)" fill="#f2f2f2"/>
-                            <rect id="Rectangle_775" data-name="Rectangle 775" width="134.349" height="102.639" transform="translate(452.884 5.664)" fill="#fff"/>
-                            <path id="Path_3446-6164" data-name="Path 3446" d="M693.4,297.7h.053a35.82,35.82,0,0,0,.8-71.491.817.817,0,0,0-.618.214.809.809,0,0,0-.264.592l-.783,69.859a.82.82,0,0,0,.811.827Z" transform="translate(-170.983 -215.901)" fill="#090814"/>
-                            <path id="Path_3447-6165" data-name="Path 3447" d="M666.346,237.433a1.055,1.055,0,0,1,.74.316l24.049,24.595a1.043,1.043,0,0,1,.3.746l-.375,33.428a1.04,1.04,0,0,1-.34.761,1.056,1.056,0,0,1-.794.276,36.054,36.054,0,0,1-24.382-59.764,1.056,1.056,0,0,1,.762-.357Z" transform="translate(-172.021 -215.577)" fill="#e6e6e6"/>
-                            <path id="Path_3448-6166" data-name="Path 3448" d="M690.469,225.927a1.059,1.059,0,0,1,.72.294,1.04,1.04,0,0,1,.323.769l-.338,30.16a1.05,1.05,0,0,1-1.8.722l-20.986-21.462a1.052,1.052,0,0,1,.057-1.524,36.13,36.13,0,0,1,21.961-8.959Z" transform="translate(-171.689 -215.909)" fill="#6c63ff"/>
-                            <path id="Path_3449-6167" data-name="Path 3449" d="M679.694,309.958a6.434,6.434,0,1,1-6.361-6.505,6.434,6.434,0,0,1,6.361,6.505Z" transform="translate(-171.725 -213.675)" fill="#6c63ff"/>
-                            <path id="Path_3450-6168" data-name="Path 3450" d="M697.56,310.158a6.434,6.434,0,1,1-6.361-6.505A6.434,6.434,0,0,1,697.56,310.158Z" transform="translate(-171.21 -213.669)" fill="#090814"/>
-                            <path id="Path_3451-6169" data-name="Path 3451" d="M715.426,310.358a6.434,6.434,0,1,1-6.361-6.505A6.434,6.434,0,0,1,715.426,310.358Z" transform="translate(-170.696 -213.664)" fill="#e6e6e6"/>
-                            <rect id="Rectangle_776" data-name="Rectangle 776" width="149.174" height="113.965" rx="8" transform="translate(443.901 131.901)" fill="#f2f2f2"/>
-                            <rect id="Rectangle_777" data-name="Rectangle 777" width="134.349" height="102.639" transform="translate(451.313 137.565)" fill="#fff"/>
-                            <circle id="Ellipse_536" data-name="Ellipse 536" cx="5.578" cy="5.578" r="5.578" transform="translate(468.53 160.142)" fill="#090814"/>
-                            <path id="Path_3452-6170" data-name="Path 3452" d="M735.314,373.075a3.783,3.783,0,0,1,0,7.566H676.645a3.783,3.783,0,0,1,0-7.566h58.669m0-.927H676.645a4.71,4.71,0,1,0,0,9.419h58.669a4.71,4.71,0,1,0,0-9.419Z" transform="translate(-171.578 -211.696)" fill="#3f3d56"/>
-                            <path id="Path_3453-6171" data-name="Path 3453" d="M712.406,381.568H668.241a4.71,4.71,0,0,1,0-9.419h44.165a4.71,4.71,0,0,1,0,9.419Z" transform="translate(-171.82 -211.696)" fill="#6c63ff"/>
-                            <circle id="Ellipse_537" data-name="Ellipse 537" cx="5.578" cy="5.578" r="5.578" transform="translate(468.53 183.306)" fill="#090814"/>
-                            <path id="Path_3454-6172" data-name="Path 3454" d="M735.314,395.59a3.783,3.783,0,0,1,0,7.566H676.645a3.783,3.783,0,0,1,0-7.566h58.669m0-.927H676.645a4.71,4.71,0,0,0,0,9.419h58.669a4.71,4.71,0,1,0,0-9.419Z" transform="translate(-171.578 -211.047)" fill="#3f3d56"/>
-                            <path id="Path_3455-6173" data-name="Path 3455" d="M729.084,404.083H668.241a4.71,4.71,0,0,1,0-9.419h60.843a4.71,4.71,0,0,1,0,9.419Z" transform="translate(-171.82 -211.047)" fill="#6c63ff"/>
-                            <circle id="Ellipse_538" data-name="Ellipse 538" cx="5.578" cy="5.578" r="5.578" transform="translate(468.53 206.469)" fill="#090814"/>
-                            <path id="Path_3456-6174" data-name="Path 3456" d="M735.314,418.105a3.783,3.783,0,0,1,0,7.566H676.645a3.783,3.783,0,0,1,0-7.566h58.669m0-.927H676.645a4.71,4.71,0,0,0,0,9.419h58.669a4.71,4.71,0,1,0,0-9.419Z" transform="translate(-171.578 -210.398)" fill="#3f3d56"/>
-                            <path id="Path_3457-6175" data-name="Path 3457" d="M692.949,426.6H668.241a4.71,4.71,0,0,1,0-9.419h24.708a4.71,4.71,0,0,1,0,9.419Z" transform="translate(-171.82 -210.398)" fill="#6c63ff"/>
-                            <rect id="Rectangle_778" data-name="Rectangle 778" width="405.085" height="245.866" rx="8" fill="#f2f2f2"/>
-                            <rect id="Rectangle_779" data-name="Rectangle 779" width="388.981" height="230.626" transform="translate(8.052 7.341)" fill="#fff"/>
-                            <path id="Path_3458-6176" data-name="Path 3458" d="M532.581,408.413H249.021a.887.887,0,0,1-.887-.887V271.616a.887.887,0,1,1,1.775,0V406.639H532.581a.887.887,0,0,1,0,1.775Z" transform="translate(-183.789 -214.618)" fill="#090814"/>
-                            <path id="Path_3459-6177" data-name="Path 3459" d="M308.68,396.212H282.889a2.637,2.637,0,0,1-2.634-2.634V358.025a2.637,2.637,0,0,1,2.634-2.634H308.68a2.637,2.637,0,0,1,2.634,2.634v35.553A2.637,2.637,0,0,1,308.68,396.212Z" transform="translate(-182.864 -212.178)" fill="#6c63ff"/>
-                            <path id="Path_3460-6178" data-name="Path 3460" d="M354.4,397.157H328.6a2.637,2.637,0,0,1-2.634-2.634V325.248a2.637,2.637,0,0,1,2.634-2.634H354.4a2.637,2.637,0,0,1,2.634,2.634v69.275A2.637,2.637,0,0,1,354.4,397.157Z" transform="translate(-181.546 -213.123)" fill="#6c63ff"/>
-                            <path id="Path_3461-6179" data-name="Path 3461" d="M400.111,396.212H374.32a2.637,2.637,0,0,1-2.634-2.634V358.025a2.637,2.637,0,0,1,2.634-2.634h25.791a2.637,2.637,0,0,1,2.634,2.634v35.553a2.637,2.637,0,0,1-2.634,2.634Z" transform="translate(-180.229 -212.178)" fill="#6c63ff"/>
-                            <path id="Path_3462-6180" data-name="Path 3462" d="M445.827,397.53H420.036a2.58,2.58,0,0,1-2.634-2.515V312.19a2.58,2.58,0,0,1,2.634-2.515h25.791a2.58,2.58,0,0,1,2.634,2.515v82.824a2.58,2.58,0,0,1-2.634,2.515Z" transform="translate(-178.912 -213.496)" fill="#6c63ff"/>
-                            <path id="Path_3463-6181" data-name="Path 3463" d="M491.542,398.2H465.751a2.637,2.637,0,0,1-2.634-2.634V289.021a2.637,2.637,0,0,1,2.634-2.634h25.791a2.637,2.637,0,0,1,2.634,2.634V395.567A2.637,2.637,0,0,1,491.542,398.2Z" transform="translate(-177.595 -214.167)" fill="#6c63ff"/>
-                            <circle id="Ellipse_539" data-name="Ellipse 539" cx="5.324" cy="5.324" r="5.324" transform="translate(107.596 121.914)" fill="#090814"/>
-                            <circle id="Ellipse_540" data-name="Ellipse 540" cx="5.324" cy="5.324" r="5.324" transform="translate(154.629 87.306)" fill="#090814"/>
-                            <circle id="Ellipse_541" data-name="Ellipse 541" cx="5.324" cy="5.324" r="5.324" transform="translate(201.662 121.914)" fill="#090814"/>
-                            <circle id="Ellipse_542" data-name="Ellipse 542" cx="5.324" cy="5.324" r="5.324" transform="translate(248.695 70.445)" fill="#090814"/>
-                            <circle id="Ellipse_543" data-name="Ellipse 543" cx="5.324" cy="5.324" r="5.324" transform="translate(295.728 50.921)" fill="#090814"/>
-                            <path id="Path_3464-6182" data-name="Path 3464" d="M260.816,208.773l-47.144-35.312-46.5,34.829-1.064-1.42,47.565-35.628,46.92,35.144,46.627-51.024.186-.076,47.033-18.95.664,1.646-46.846,18.875Z" transform="translate(-53.717 -80.341)" fill="#090814"/>
-                          </g>
-                        </g>
-                    </svg>
-                </div>
-            </section>
+      <div class="app-showcase reveal-up">
+        <div class="app-carousel" id="appCarousel">
+          <div class="app-track" id="appTrack">
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page.png" alt="DyeTex Dashboard" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page1.png" alt="Machine Monitoring" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page2.png" alt="Analytics" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page3.png" alt="Alerts" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page4.png" alt="Reports" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page5.png" alt="Settings" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page6.png" alt="Team" loading="lazy"></div></div>
+            <div class="app-slide"><div class="app-img-wrap"><img src="Img/appWebDesing/Page7.png" alt="Mobile" loading="lazy"></div></div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="car-prev" id="carPrev" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="car-dots" id="carDots"></div>
+          <button class="car-next" id="carNext" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
 
-            <div class="separe-title" id="about-us">
-                <span class="line"></span>
-                <span class="text" data-section="header" data-value="about-us">About The Team</span>
-                <span class="line"></span>
-            </div>
-            <section id="equipo">
-                  <h2 data-section="about-the-team" data-value="title">Meet the team behind DyeTex</h2>
-                    <p data-section="about-the-team" data-value="text">A multidisciplinary team dedicated to transforming the textile industry through smart solutions.</p>
-                      <div class="equipo-imagen">
-                            <img src="Img/equipo.png" alt="Integrantes del equipo DyeTex">
-                          </div>
-            </section>
+      <div class="product-video reveal-up">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/Y1odoQIhGp8?si=w5mQMxlc0JwKGtCk" title="DyeTex Product" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <section class="about-us">
-            <div class="about-us-container">
-                <div class="mission flxCnt">
-                <img class="element" src="Img/29750.jpg" alt="Imagen de la misión">
-                <p class="element">
-                    <strong data-section="mission" data-value="title">Mission:</strong>
-                    <span data-section="mission" data-value="text">
-                    provide textile companies with an efficient solution that optimizes machine performance through real-time monitoring, thereby increasing productivity and reducing downtime through timely maintenance notifications.
-                    </span>
-                </p>
-                </div>
-                <div class="vision flxCnt">
-                <img class="element" src="Img/20100.jpg" alt="Imagen de la visión">
-                <p class="element">
-                    <strong data-section="vision" data-value="title">Vision:</strong>
-                    <span data-section="vision" data-value="text">
-                    become the leading platform for the textile industry, offering a suitable solution that transforms the management of machinery and the production process, contributing to industrial growth and the competitiveness of textile companies.
-                    </span>
-                </p>
-                </div>
-            </div>
-            <div class="imgPlanetContainer">
-                <img class="imgDec" src="Img/planet.png" alt="Decoración planeta">
-            </div>
-            </section>
+  <!-- ══════════════════════ PRICING SECTION ══════════════════════ -->
+  <section id="pricing" class="section-dark">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow" data-i18n="pricing.eyebrow">Plans</span>
+        <h2 class="section-title" data-i18n="pricing.title">Made for every plant</h2>
+        <p class="section-desc" data-i18n="pricing.desc">Start monitoring your machines today. Scale as your operation grows.</p>
+      </div>
 
-
-            <section class="video-section">
-                <div class="video-container">
-                    <div class="video-placeholder">
-                        <iframe 
-                            width="560" 
-                            height="315" 
-                            src="https://www.youtube.com/embed/R08nqhHqrGA?si=-peJ87z0FfUqAJOO" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            </section>
-
-
-        </main>
-        <div class="separe-title" id="about-app">
-            <span class="line"></span>
-            <span class="text" data-section="header" data-value="about-app">About The Product</span>
-            <span class="line"></span>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal-up" data-delay="0">
+          <div class="pricing-header">
+            <span class="plan-name" data-i18n="pricing.free.name">Starter</span>
+            <div class="plan-price"><span class="price-num">$0</span><span class="price-period" data-i18n="pricing.period">/ mo</span></div>
+            <p class="plan-desc" data-i18n="pricing.free.desc">Ideal to test real-time monitoring in a small plant.</p>
+          </div>
+          <ul class="plan-features">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.free.f1">Up to 5 machines</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.free.f2">Real-time dashboard</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.free.f3">Basic alert notifications</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.free.f4">7-day data history</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.free.f5">Email support</span></li>
+          </ul>
+          <a href="https://dytex-fn8rqq4mw-hectors-projects-a1cfc66e.vercel.app" class="plan-btn plan-btn-outline" data-i18n="pricing.start">Get Started</a>
         </div>
 
-        <section class="about-app">
-            <div class="about-app-info">
-                <h2>DyeTex</h2>
-                <p class="purpose" data-section="appSection" data-value="purpose">
-                    DyeTex aims to drive operational efficiency in the textile industry through the use of advanced technology
-                </p>
-                <span data-section="appSection" data-value="question-msg">
-                    Looking to reduce downtime, cut costs, and boost machine efficiency?
-                </span>
-                <p>
-                    <span data-section="appSection" data-value="with">With</span>&nbsp;<strong>DyeTex,</strong>
-                    <span data-section="appSection" data-value="answ-msg">
-                        you get real-time monitoring, smart alerts, and detailed reports to take your operations to the next level.
-                    </span> 
-                </p>
-                <strong data-section="appSection" data-value="motivate-msg" style="margin-bottom: 15px;">
-                    Try it today and turn your factory into a smart facility
-                </strong>
-                <a href="https://dytex-fn8rqq4mw-hectors-projects-a1cfc66e.vercel.app" class="cta-button" data-section="btn-call-action" data-value="join-now">Join Now</a>
-            </div>
-            <div class="carousel-images-app">
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img src="Img/appWebDesing/Page.png" />
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img src="Img/appWebDesing/Page1.png" />
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img src="Img/appWebDesing/Page2.png"/>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img src="Img/appWebDesing/Page3.png" />
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img class="img5" src="Img/appWebDesing/Page4.png" />
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img src="Img/appWebDesing/Page5.png" />
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img class="img8" src="Img/appWebDesing/Page6.png" />
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="carousel-item">
-                    <div class="carousel-box">
-                        <div class="img-cnt">
-                            <img src="Img/appWebDesing/Page7.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="video-section">  
-            <div class="video-container">
-                <div class="video-placeholder">
-                        <iframe 
-                            width="560" 
-                            height="315" 
-                            src="https://www.youtube.com/embed/Y1odoQIhGp8?si=w5mQMxlc0JwKGtCk" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-            </div>
-        </section>
-
-        <div class="separe-title" id="contact">
-            <span class="line"></span>
-            <span class="text" data-section="header" data-value="contact">Contact</span>
-            <span class="line"></span>
+        <div class="pricing-card pricing-featured reveal-up" data-delay="1">
+          <div class="featured-badge" data-i18n="pricing.popular">Most Popular</div>
+          <div class="pricing-header">
+            <span class="plan-name" data-i18n="pricing.pro.name">Pro</span>
+            <div class="plan-price"><span class="price-num">$49</span><span class="price-period" data-i18n="pricing.period">/ mo</span></div>
+            <p class="plan-desc" data-i18n="pricing.pro.desc">For plants with multiple lines and teams needing full visibility.</p>
+          </div>
+          <ul class="plan-features">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f1">Unlimited machines</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f2">AI predictive alerts</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f3">Automated PDF reports</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f4">Maintenance scheduler</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f5">Advanced analytics</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f6">Mobile app access</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f7">Priority support</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.pro.f8">1-year data history</span></li>
+          </ul>
+          <a href="https://dytex-fn8rqq4mw-hectors-projects-a1cfc66e.vercel.app" class="plan-btn plan-btn-primary" data-i18n="pricing.start">Get Started</a>
         </div>
 
-        <section class="contact">
-            <div class="contact-container">
-                <div class="direct-contact contactElement">
-                    <i class="fa-solid fa-chevron-up"></i>
-                    <i class="fa-solid fa-chevron-down"></i>
-                    <h data-section="fouthSection" data-value="title">Contact Information</h>
-                    <div class="contact-method phone">
-                        <i class="fa-solid fa-phone"></i>
-                        <p>+51 999 999 999</p>
-                    </div>
-                    <div class="contact-method email">
-                        <i class="fa-solid fa-envelope"></i>
-                        <p>supportintex@gmail.com</p>
-                    </div>
-                    <div class="contact-method company">
-                        <i class="fa-solid fa-building"></i>
-                        <p>Tintex S.A.C</p>
-                    </div>
-                </div>
-                <div class="email-contact contactElement">
-                    <form action="#" method="">
-                        <div class="userInfo">
-                            <div class="name-container">
-                                <label for="name" data-section="fouthSection" data-value="name">Name</label>
-                                <input id="name" type="text" name="name" required="">
-                            </div>
-                            <div class="email-container">
-                                <label for="email" data-section="fouthSection" data-value="email">Email</label>
-                                <input id="email" type="email" name="email" required="">
-                            </div>
-                        </div>
-                        <div class="subject-container">
-                            <label for="subject" data-section="fouthSection" data-value="your-subject">Your Subject</label>
-                            <input id="subject" type="text" name="subject" required="">
-                        </div>
-                        <div class="message-container">
-                            <label for="message" data-section="fouthSection" data-value="message">Message</label>
-                            <textarea id="message" name="message" required=""></textarea>
-                        </div>
-                        <div class="send-contact ">
-                            <button type="submit" class="sendBtn" role="button" data-section="fouthSection" data-value="send">Send</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-        </section>
-        
-        <footer class="footer-ctn">
-            <div class="footer-ctn_hdr">
-                <ul class="ftr_hdr_terms">
-                    <li class="ftr_terms" ><a href="#" class="link_terms" data-section="footer" data-value="terms-use" >Terms of use</a></li>
-                    <li class="ftr_terms" ><a href="#" class="link_terms" data-section="footer" data-value="privacy-policy" >Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="info-ctn">
-                <h3 class="nameApp">DyeTex</h3>
-                <div class="app_lst-ctn">
-                    <ul class="app_lst">
-                        <li class="app fcb"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                        <li class="app inst"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                        <li class="app link"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                        <li class="app ytb"><a a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="ubi-ctn">
-                    <span class="spot">Av. de la Marina 2810</span>
-                    <br>
-                    <br>
-                    <span class="spot">San Miguel</span>
-                    <br>
-                    <br>
-                    <span class="spot">Lima - Perú</span>
-                    <br>
-                    <br>
-                </div>
-                <br>
-                <span class="end_ftr">DyeTex &copy; 2024</span>
-            </div>
-        </footer>
-        
-        <!--Virtual assistant-->
+        <div class="pricing-card reveal-up" data-delay="2">
+          <div class="pricing-header">
+            <span class="plan-name" data-i18n="pricing.ent.name">Enterprise</span>
+            <div class="plan-price"><span class="price-num" data-i18n="pricing.custom">Custom</span></div>
+            <p class="plan-desc" data-i18n="pricing.ent.desc">For large plants and textile groups needing dedicated infrastructure.</p>
+          </div>
+          <ul class="plan-features">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.ent.f1">Everything in Pro</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.ent.f2">Custom sensor deployment</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.ent.f3">On-premise option</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.ent.f4">SLA guarantee</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricing.ent.f5">Dedicated account manager</span></li>
+          </ul>
+          <a href="mailto:supportintex@gmail.com" class="plan-btn plan-btn-outline" data-i18n="pricing.contact">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!--creation of Assistant Box-->
-        <div class="VirtualAssistantBox">
-            <div class="VAIconBox"> 
-            <i class="fa-solid fa-comment-dots"></i>
+  <!-- ════════════════════════ CTA / SUBSCRIBE ════════════════════════ -->
+  <section id="cta-subscribe" class="section-cta">
+    <div class="cta-bg-lines" aria-hidden="true">
+      <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="cta-path" d="M0,200 L300,100 L600,250 L900,80 L1200,200 L1440,120"/>
+        <path class="cta-path" d="M0,300 L200,150 L500,280 L800,100 L1100,260 L1440,180"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="cta-content reveal-up">
+        <span class="section-eyebrow" data-i18n="cta.eyebrow">Stay ahead</span>
+        <h2 class="cta-title" data-i18n="cta.title">Transform your factory<br>into a smart facility</h2>
+        <p class="cta-desc" data-i18n="cta.desc">Join 200+ textile plants already reducing downtime with DyeTex. Get early access, product updates and industry insights.</p>
+        <form class="subscribe-form" id="subscribeForm" novalidate>
+          <div class="form-row">
+            <input type="email" class="subscribe-input" id="subscribeEmail" placeholder="your@email.com" data-i18n-placeholder="cta.placeholder" required>
+            <button type="submit" class="btn-primary subscribe-btn">
+              <span data-i18n="cta.subscribe">Get Early Access</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="form-note" data-i18n="cta.note">No spam. Unsubscribe anytime.</p>
+          <p class="form-success" id="formSuccess" data-i18n="cta.success">You're on the list! We'll be in touch soon.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#00E5A0" stroke-width="2"/><path d="M8 16 L12 10 L16 14 L20 8 L24 16" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="20" r="3" fill="#00E5A0"/></svg>
             </div>
-            <!--creation of message Box-->
-            <!--mbc : message box content-->
-            <div class="messageBox">
-                <div class="messageBoxCont">
-            
-                    <div class="BHeader mbc">
-                        <h2 class="nameVA">Clara</h2>
-                        <i class="fa-solid fa-chevron-down closeChat"></i>
-                    </div>
-                
-                    <div class="BBody mbc">
-                        <div class="claraTalksBox">
-                            <div class="claraTalksCont">
-                                <div class="vaImgProfile vaSpeak">
-                                    <img class="imgVA" src="Img/Clara.png" alt="Virtual Assistant picture">
-                                </div>
-                                <div class="vaMessage vaSpeak">
-                                    Hello! I'm Clara, ¿What do you want to know about our app?
-                                </div>
-                            </div>
-                            <div class="frecuency-message-box">
-                                <div class="frecuency-message-ctn">
-                                    <div class="fm-bx-value">
-                                        What the benefits of the app?
-                                    </div>
-                                    <div class="fm-bx-value">
-                                        How i can contact the company?
-                                    </div>
-                                    <div class="fm-bx-value">
-                                        Whats is the company is offering?
-                                    </div>
-                                    <div class="fm-bx-value">
-                                        Where is the company location?
-                                    </div>
-                                    <div class="fm-bx-value">
-                                        What kind of reports have the app?
-                                    </div>
-                                    <div class="fm-bx-value">
-                                        Is the app able to monitor the machines?
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="BFooter mbc">
-                        <input name="txtWrite" class="txtWriter" placeholder="Ask me..." ></input>
-                        <span class="animated_line"></span>
-                        <i class="fa-solid fa-paper-plane sendButton"></i>
-                    </div>
-                </div> 
-            </div>
-            <div class="maskAi"></div> 
+            <span class="logo-text">DyeTex</span>
+          </div>
+          <p class="footer-tagline" data-i18n="footer.tagline">Smart monitoring for textile machinery.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M8 11v5M8 8v.5M12 16v-5M12 11a3 3 0 016 0v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 9l5 3-5 3V9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
         </div>
 
-    <script src="js/main.js"></script>
-    <script src="https://kit.fontawesome.com/a1580b1b63.js" crossorigin="anonymous"></script>
+        <div class="footer-nav">
+          <h4 data-i18n="footer.product">Product</h4>
+          <ul>
+            <li><a href="#solution" data-i18n="nav.solutions">Solutions</a></li>
+            <li><a href="#how-works" data-i18n="nav.howWorks">How It Works</a></li>
+            <li><a href="#about-app" data-i18n="nav.product">Platform</a></li>
+            <li><a href="#pricing" data-i18n="footer.pricing">Pricing</a></li>
+          </ul>
+        </div>
 
-    </body>
+        <div class="footer-nav">
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="#about-us" data-i18n="nav.team">The Team</a></li>
+            <li><a href="mailto:supportintex@gmail.com" data-i18n="footer.contact">Contact</a></li>
+            <li><a href="#" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="footer.terms">Terms of Use</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4 data-i18n="footer.getInTouch">Get in Touch</h4>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 10.5l-2-1.5-1.5 1.5C8 11 6 9.5 5 8L6.5 6.5 5 4.5 2.5 3C2 4 2 5.5 3 7c1.5 2.5 4 5 6.5 6 1.5 1 3 1 4 .5l-1-3z" stroke="#00E5A0" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <span>+51 999 999 999</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="2" stroke="#00E5A0" stroke-width="1.2"/><path d="M2 6l6 4 6-4" stroke="#00E5A0" stroke-width="1.2"/></svg>
+            <span>supportintex@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a4 4 0 100 8A4 4 0 008 2zm0 10c-4 0-6 1.5-6 2.5V15h12v-.5c0-1-2-2.5-6-2.5z" stroke="#00E5A0" stroke-width="1.2"/></svg>
+            <span>Tintex S.A.C</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4zm0 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" stroke="#00E5A0" stroke-width="1.2"/></svg>
+            <span>Av. de la Marina 2810, Lima</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>DyeTex &copy; 2024 — Tintex S.A.C</span>
+        <span data-i18n="footer.made">Made in Lima, Perú 🇵🇪</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════ AI CHAT WIDGET ══════════════════════ -->
+  <div class="chat-widget" id="chatWidget">
+    <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+      <div class="chat-toggle-icon" id="chatIcon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6 2 2 6 2 11c0 2 .7 3.8 1.8 5.2L3 20l4.2-.9C8.4 19.7 9.7 20 11 20c5 0 9-4 9-9s-4-9-9-9z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 11h.01M11 11h.01M15 11h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="chat-toggle-close hidden" id="chatClose">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4l10 10M14 4L4 14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="chat-online-dot"></div>
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-agent">
+          <div class="agent-avatar">
+            <img src="Img/Clara.png" alt="Clara" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="avatar-fallback" style="display:none">C</div>
+          </div>
+          <div class="agent-info">
+            <span class="agent-name">Clara</span>
+            <span class="agent-status" data-i18n="chat.status">Online · DyeTex AI</span>
+          </div>
+        </div>
+        <button class="chat-minimize" id="chatMinimize">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">
+          <div class="msg-avatar">
+            <img src="Img/Clara.png" alt="Clara" onerror="this.parentElement.innerHTML='<div class=\'avatar-fallback-sm\'>C</div>'">
+          </div>
+          <div class="msg-bubble">
+            <span data-i18n="chat.greeting">Hello! I'm Clara, DyeTex's AI assistant. How can I help you today?</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion-chip" data-query="What are the benefits of the app?" data-i18n="chat.s1">App benefits</button>
+        <button class="suggestion-chip" data-query="How can I contact the company?" data-i18n="chat.s2">Contact us</button>
+        <button class="suggestion-chip" data-query="What does the app monitor?" data-i18n="chat.s3">What it monitors</button>
+        <button class="suggestion-chip" data-query="What kind of reports does the app generate?" data-i18n="chat.s4">Reports</button>
+        <button class="suggestion-chip" data-query="Where is the company located?" data-i18n="chat.s5">Our location</button>
+        <button class="suggestion-chip" data-query="What is the pricing?" data-i18n="chat.s6">Pricing</button>
+      </div>
+
+      <div class="chat-input-wrap">
+        <input type="text" class="chat-input" id="chatInput" data-i18n-placeholder="chat.placeholder" placeholder="Ask me anything...">
+        <button class="chat-send" id="chatSend" aria-label="Send">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
-

@@ -1,333 +1,349 @@
-window.addEventListener("scroll", function(){
-    var header = document.querySelector("nav");
-    header.classList.toggle("sticky", window.scrollY > 0)
-})
+// ══════════════════════════════════════════════════
+// DyeTex — main.js
+// Navbar · Scroll Reveal · Stats Counter · Carousel
+// Chat Widget · Subscribe Form
+// ══════════════════════════════════════════════════
 
-//scrool infinity horizontal animation
-const track = document.querySelector(".carousel-cards");
-track.innerHTML += track.innerHTML;
+document.addEventListener('DOMContentLoaded', () => {
 
+  // ─────────────────────────────────────
+  // 1. NAVBAR
+  // ─────────────────────────────────────
+  const navbar    = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
 
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }, { passive: true });
 
-/////////////////////////////
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('mobile-open');
+  });
 
+  // Close mobile menu on link click
+  navLinks?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('mobile-open');
+    });
+  });
 
-/*the box of message with VA comes*/
-const messageBoxMask = document.querySelector('.maskAi');
-const messageAIBox = document.querySelector('.messageBoxCont');
-const callAIBox = document.querySelector('.VAIconBox');
-const closeAIBox = document.querySelector('.closeChat');
+  // ─────────────────────────────────────
+  // 2. SCROLL REVEAL
+  // ─────────────────────────────────────
+  const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
-callAIBox.addEventListener('click', () => {
-  messageAIBox.classList.toggle('translateBox');
-  messageBoxMask.classList.toggle('visible');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay ? parseInt(entry.target.dataset.delay) * 120 : 0;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ─────────────────────────────────────
+  // 3. STATS COUNTER
+  // ─────────────────────────────────────
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-target'));
+      const duration = 1800;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * ease);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      };
+
+      requestAnimationFrame(tick);
+      countObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  statNums.forEach(el => countObserver.observe(el));
+
+  // ─────────────────────────────────────
+  // 4. APP CAROUSEL
+  // ─────────────────────────────────────
+  const track   = document.getElementById('appTrack');
+  const prevBtn = document.getElementById('carPrev');
+  const nextBtn = document.getElementById('carNext');
+  const dotsWrap = document.getElementById('carDots');
+  const slides  = track?.querySelectorAll('.app-slide');
+
+  if (track && slides?.length) {
+    let current = 0;
+    const total = slides.length;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'car-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = dotsWrap.querySelectorAll('.car-dot');
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    // Auto-advance
+    let autoPlay = setInterval(() => goTo(current + 1), 4000);
+    track.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
+    track.parentElement.addEventListener('mouseleave', () => {
+      autoPlay = setInterval(() => goTo(current + 1), 4000);
+    });
+
+    // Touch / swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+  }
+
+  // ─────────────────────────────────────
+  // 5. SUBSCRIBE FORM
+  // ─────────────────────────────────────
+  const form    = document.getElementById('subscribeForm');
+  const emailIn = document.getElementById('subscribeEmail');
+  const success = document.getElementById('formSuccess');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = emailIn.value.trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRe.test(email)) {
+      emailIn.style.borderColor = '#ef4444';
+      emailIn.focus();
+      setTimeout(() => { emailIn.style.borderColor = ''; }, 1500);
+      return;
+    }
+
+    // Simulate submission
+    const btn = form.querySelector('.subscribe-btn');
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    setTimeout(() => {
+      form.querySelector('.form-row').style.display = 'none';
+      form.querySelector('.form-note').style.display = 'none';
+      success.classList.add('show');
+    }, 600);
+  });
+
+  // ─────────────────────────────────────
+  // 6. AI CHAT WIDGET
+  // ─────────────────────────────────────
+  const chatToggle   = document.getElementById('chatToggle');
+  const chatPanel    = document.getElementById('chatPanel');
+  const chatIcon     = document.getElementById('chatIcon');
+  const chatClose    = document.getElementById('chatClose');
+  const chatMinimize = document.getElementById('chatMinimize');
+  const chatInput    = document.getElementById('chatInput');
+  const chatSend     = document.getElementById('chatSend');
+  const chatMessages = document.getElementById('chatMessages');
+  const suggestions  = document.querySelectorAll('.suggestion-chip');
+  let chatOpen = false;
+  let suggestionsHidden = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    chatPanel.classList.toggle('open', chatOpen);
+    chatIcon.classList.toggle('hidden', chatOpen);
+    chatClose.classList.toggle('hidden', !chatOpen);
+
+    if (chatOpen) {
+      setTimeout(() => chatInput?.focus(), 300);
+      scrollChat();
+    }
+  }
+
+  chatToggle?.addEventListener('click', toggleChat);
+  chatMinimize?.addEventListener('click', toggleChat);
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (chatOpen && !chatPanel.contains(e.target) && !chatToggle.contains(e.target)) {
+      toggleChat();
+    }
+  });
+
+  function scrollChat() {
+    if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function appendMessage(text, role) {
+    const wrap = document.createElement('div');
+    wrap.className = `chat-msg ${role}`;
+
+    if (role === 'bot') {
+      const av = document.createElement('div');
+      av.className = 'msg-avatar';
+      av.innerHTML = '<img src="Img/Clara.png" alt="Clara" onerror="this.parentElement.innerHTML=\'<div class=\\\"avatar-fallback-sm\\\">C</div>\'">';
+      wrap.appendChild(av);
+    }
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.textContent = text;
+    wrap.appendChild(bubble);
+    chatMessages?.appendChild(wrap);
+    scrollChat();
+  }
+
+  function showTyping() {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg bot chat-typing';
+    wrap.id = 'typingIndicator';
+    const av = document.createElement('div');
+    av.className = 'msg-avatar';
+    av.innerHTML = '<img src="Img/Clara.png" alt="Clara" onerror="this.parentElement.innerHTML=\'<div class=\\\"avatar-fallback-sm\\\">C</div>\'">';
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    wrap.appendChild(av);
+    wrap.appendChild(bubble);
+    chatMessages?.appendChild(wrap);
+    scrollChat();
+  }
+
+  function removeTyping() {
+    document.getElementById('typingIndicator')?.remove();
+  }
+
+  function getBotAnswer(msg) {
+    const m = msg.toLowerCase();
+    const t = TRANSLATIONS[window.DyeTexI18n ? currentLangRef() : 'en'] || TRANSLATIONS['en'];
+
+    if (m.includes('hello') || m.includes('hi') || m.includes('hola') || m.includes('bonjour') || m.includes('olá')) {
+      return t.chat.greeting;
+    }
+    if (m.includes('benefit') || m.includes('beneficio') || m.includes('avantage') || m.includes('benefício')) {
+      return 'DyeTex helps you reduce machine downtime by up to 40%, generate automated efficiency reports, receive AI-powered failure alerts, and make data-driven maintenance decisions — all from one dashboard.';
+    }
+    if (m.includes('contact') || m.includes('contacto')) {
+      return 'You can reach us at supportintex@gmail.com or call +51 999 999 999. We are based at Av. de la Marina 2810, San Miguel, Lima — Perú.';
+    }
+    if (m.includes('monitor') || m.includes('surveill')) {
+      return 'DyeTex monitors RPM, temperature, vibration, pressure, and output of each machine in real-time. Data is streamed live to your dashboard from IoT sensors installed directly on your equipment.';
+    }
+    if (m.includes('report') || m.includes('reporte') || m.includes('rapport') || m.includes('relatório')) {
+      return 'The platform generates automated daily, weekly, and monthly reports covering efficiency metrics, fault history, output per hour, and maintenance records. All exportable to PDF.';
+    }
+    if (m.includes('location') || m.includes('ubicación') || m.includes('adresse') || m.includes('localização') || m.includes('where') || m.includes('dónde')) {
+      return 'We are located at Av. de la Marina 2810, San Miguel, Lima, Perú. Our team is available remotely worldwide.';
+    }
+    if (m.includes('pric') || m.includes('precio') || m.includes('tarif') || m.includes('preço') || m.includes('cost') || m.includes('plan')) {
+      return 'We offer 3 plans: Starter (free, up to 5 machines), Pro ($49/mo, unlimited machines + AI features), and Enterprise (custom pricing for large plants). Scroll to the Pricing section to learn more!';
+    }
+    if (m.includes('install') || m.includes('setup') || m.includes('configurar')) {
+      return 'Installation is done by our certified technicians. We install non-invasive IoT sensors on your existing machines — no production stop needed. The full setup typically takes less than a day.';
+    }
+    if (m.includes('demo')) {
+      return 'You can request a live demo at dytex-fn8rqq4mw-hectors-projects-a1cfc66e.vercel.app or click the "Request Demo" button on this page. Our team will reach out within 24 hours.';
+    }
+    if (m.includes('plant') || m.includes('planta') || m.includes('usine') || m.includes('fábrica')) {
+      return 'DyeTex supports monitoring of up to 5 plants simultaneously on the Enterprise plan. Each plant has its own dedicated dashboard view with cross-plant comparison tools.';
+    }
+    return "I'm Clara, DyeTex's AI assistant. I can answer questions about our product features, pricing, installation, or how to contact us. What would you like to know?";
+  }
+
+  function currentLangRef() {
+    return document.getElementById('currentLang')?.textContent?.toLowerCase() || 'en';
+  }
+
+  function sendMessage(text) {
+    if (!text.trim()) return;
+
+    // Hide suggestions after first interaction
+    if (!suggestionsHidden) {
+      document.getElementById('chatSuggestions').style.display = 'none';
+      suggestionsHidden = true;
+    }
+
+    appendMessage(text, 'user');
+    chatInput.value = '';
+
+    // Typing indicator
+    showTyping();
+
+    setTimeout(() => {
+      removeTyping();
+      const answer = getBotAnswer(text);
+      appendMessage(answer, 'bot');
+    }, 900 + Math.random() * 600);
+  }
+
+  chatSend?.addEventListener('click', () => sendMessage(chatInput.value));
+
+  chatInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(chatInput.value);
+    }
+  });
+
+  suggestions?.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const query = chip.getAttribute('data-query') || chip.textContent;
+      sendMessage(query);
+    });
+  });
+
+  // ─────────────────────────────────────
+  // 7. SMOOTH ANCHOR SCROLL
+  // ─────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = navbar ? navbar.offsetHeight + 16 : 80;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ─────────────────────────────────────
+  // 8. FEATURE CARD TILT (subtle)
+  // ─────────────────────────────────────
+  const cards = document.querySelectorAll('.feature-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+      const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 8;
+      card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
 });
-
-closeAIBox.addEventListener('click', () => {
-  messageAIBox.classList.toggle('translateBox');
-  messageBoxMask.classList.toggle('visible');
-})
-
-
-
-/*@TODO: add the logic of VA here*/
-const messageInput = document.querySelector('.txtWriter');
-const sendButton = document.querySelector('.sendButton');
-const messageContainer = document.querySelector('.claraTalksBox');
-
-const messageValue = document.querySelectorAll('.fm-bx-value')
-const frequencyMsgBox = document.querySelector('.frecuency-message-box')
-
-let answerBot = "";
-
-let messageClick = "";
-
-let interMsgFrc = 0;
-
-
-
-/* scroll chat behaviour */
-let scrollBtm = () => {
-  messageContainer.scrollTop = messageContainer.scrollHeight
-}
-
-messageContainer.addEventListener("scroll", function(){
-  const isAtBottom = messageContainer.scrollTop + messageContainer.clientHeight >= messageContainer.scrollHeight - 1;
-  frequencyMsgBox.classList.toggle("invisible", !isAtBottom);
-})
-
-/*Frequency message query*/
-for (let i = 0; i < messageValue.length; i++) {
-  messageValue[i].addEventListener("click", () =>{
-    interMsgFrc++;
-    messageClick = messageValue[i].innerHTML
-    createChat(messageClick)
-    scrollBtm()
-
-    if (interMsgFrc) {
-      frequencyMsgBox.classList.remove('frecuency-message-box')
-      frequencyMsgBox.classList.add('frecuency-message-box-hidden')
-    }
-  })
-
-}
-
-sendButton.addEventListener('click', () => {
-
-  if (messageInput.value === "") {
-    alert("Please write a message before sending.");
-    return;
-  }
-
-  createChat(messageInput.value)
-
-  scrollBtm()
-
-  frequencyMsgBox.classList.remove('frecuency-message-box')
-  frequencyMsgBox.classList.add('frecuency-message-box-hidden')
-
-})
-
-
-
-
-let createChat = (mssg) => {
-  /*Build a chat glove for human*/
-  const humanGloveCnt = document.createElement('div');
-  const humanGlove = document.createElement('div');
-  const textGlove = document.createTextNode(mssg);
-  /*add classes for each div*/
-  humanGlove.classList.add('humanMessage');
-  humanGloveCnt.classList.add('humanTalksCont');
-  /*assign the child for each parent box*/
-  humanGlove.appendChild(textGlove);
-  humanGloveCnt.appendChild(humanGlove);
-  messageContainer.appendChild(humanGloveCnt);
-
-  /*Doing the same process with Virtual Assitent*/
-  
-  chatBox(mssg);//call the function to get the answer
-
-  const messageAIBox = document.createElement('div');
-  const messageAI = document.createElement('div');
-  const textAI = document.createTextNode(answerBot);
-  const imgAIContainer = document.createElement('div');
-  const imgAI = document.createElement('img');
-  
-
-  imgAI.src = "Img/Clara.png";
-  imgAI.alt = "Virtual Assistant Picture";
-  imgAI.classList.add('imgVA');
-  imgAIContainer.classList.add('vaImgProfile');
-  messageAI.classList.add('vaMessage');
-  messageAIBox.classList.add('claraTalksCont');
-
-
-  imgAIContainer.appendChild(imgAI);
-  messageAI.appendChild(textAI);
-  messageAIBox.appendChild(imgAIContainer);
-  messageAIBox.appendChild(messageAI);
-  messageContainer.appendChild(messageAIBox);
-  messageContainer.scrollTop = messageContainer.scrollHeight; //scroll to the bottom of the container
-  messageContainer.scrollIntoView({ behavior: 'smooth' });
-  messageContainer.style.overflowY = "scroll"; //enable scroll bar
-  messageContainer.style.overflowX = "hidden"; //disable scroll bar
-  
-  messageInput.value = ""; //clear the input box
-
-}
-
-
-
-
-const chatBox = (sentence) => {
-  let finalAnsw = "";
-
-    sentence = sentence.trim();
-
-    if (sentence.includes("hello") || sentence.includes("Hello") || sentence.includes("hi")) {
-     finalAnsw = "Hello! How can I assist you today?";
-    }
-    else if(sentence == "Where is the company location?") {
-       finalAnsw = "We are located at Lima-Perú.";
-    }
-    else if(sentence == "How i can contact the company?") {
-        finalAnsw = "You can contact us at supportintex@gmail.com our by our phone number: 123-456-7890.";
-    }
-    else if (sentence.includes("company") || sentence.includes("Company")) {
-      finalAnsw = "We are a company that specializes in providing innovative solutions for textile machinery";
-    }
-    else if (sentence == "Whats is the company is offering?") {
-        finalAnsw = "We offer a range of services including textile machinery monitoring, maintenance, and support.";
-    }
-    else if (sentence == "What kind of reports have the app?") {
-        finalAnsw = "The system automatically generates reports on efficiency, output per hour, fault history"
-    }  
-    else if (sentence.includes("plants") || sentence.includes("plant") || sentence.includes("production lines")) { 
-        finalAnsw = "We can monitor up to 5 plants or production lines at the same time, depending on the size of the plant and the number of machines.";    
-    }
-    else if (sentence == "Is the app able to monitor the machines?") {     
-        finalAnsw = "We can monitor the machines in real-time, providing you with up-to-date information on their performance and status.";
-    }
-    else if(sentence == "What the benefits of the app?") {
-        finalAnsw = "The benefits of our system include increased efficiency, reduced downtime, and improved production quality. Our solution can be integrated into your current machines using sensors and adaptive modules—no need to replace your existing equipment.";  
-    }
-    else {
-      finalAnsw = "I'm sorry, I didn't understand that. I can answer you just about company things. like services, location, contact, etc.";
-    }
-
-  answerBot = finalAnsw;
-}
-
-
-
-
-///////////////////////////////// nav toggle
-const navMenu = document.querySelector(".nav-links-tg")
-const navToggle = document.querySelector(".bar-menu")
-
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("blockft")
-})
-
-
-//////////////////////////////////////// language switcher
-const btnLanguageBox = document.querySelector(".arrow-language")
-const boxLanguageSelect = document.querySelector(".languageBox")
-const langButtons = document.querySelectorAll("[data-language]")
-const textsToChange = document.querySelectorAll("[data-section]")
-const lngText = document.querySelector(".changeLang")
-
-btnLanguageBox.addEventListener("click", () =>{
-  btnLanguageBox.classList.toggle("fa-angle-down")
-  btnLanguageBox.classList.toggle("fa-angle-up")
-
-  boxLanguageSelect.classList.toggle("languageBoxBack")
-
-})
-
-langButtons.forEach((e) =>{
-  e.addEventListener("click",() => {
-    fetch(`i18n/${e.dataset.language}.json`)
-    .then(res => res.json())
-    .then(data => {
-      textsToChange.forEach((elem) =>{
-        const section = elem.dataset.section;
-        const value = elem.dataset.value;
-
-        elem.innerHTML = data[section][value]
-      })
-    })
-
-    lngText.textContent = e.dataset.language
-  })
-})
-  
-
-window.addEventListener("scroll",() => {
-  boxLanguageSelect.classList.remove("languageBoxBack")
-  btnLanguageBox.classList.add("fa-angle-down")
-  btnLanguageBox.classList.remove("fa-angle-up")
-})
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////
-///// Fotos movibles
-let progress = 50
-let startX = 0
-let active = 0
-let isDown = false
-
-/*--------------------
-Contants
---------------------*/
-const speedWheel = 0.02
-const speedDrag = -0.1
-
-/*--------------------
-Get Z
---------------------*/
-const getZindex = (array, index) => (array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i)))
-
-/*--------------------
-Items
---------------------*/
-const $items = document.querySelectorAll('.carousel-item')
-const $cursors = document.querySelectorAll('.cursor')
-
-const displayItems = (item, index, active) => {
-  const zIndex = getZindex([...$items], active)[index]
-  item.style.setProperty('--zIndex', zIndex)
-  item.style.setProperty('--active', (index-active)/$items.length)
-}
-
-/*--------------------
-Animate
---------------------*/
-const animate = () => {
-  progress = Math.max(0, Math.min(progress, 100))
-  active = Math.floor(progress/100*($items.length-1))
-  
-  $items.forEach((item, index) => displayItems(item, index, active))
-}
-animate()
-
-/*--------------------
-Click on Items
---------------------*/
-$items.forEach((item, i) => {
-  item.addEventListener('click', () => {
-    progress = (i/$items.length) * 100 + 10
-    animate()
-  })
-})
-
-/*--------------------
-Handlers
---------------------*/
-const handleWheel = e => {
-  const wheelProgress = e.deltaY * speedWheel
-  progress = progress + wheelProgress
-  animate()
-}
-
-const handleMouseMove = (e) => {
-  if (e.type === 'mousemove') {
-    $cursors.forEach(($cursor) => {
-      $cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
-    })
-  }
-  if (!isDown) return
-  const x = e.clientX || (e.touches && e.touches[0].clientX) || 0
-  const mouseProgress = (x - startX) * speedDrag
-  progress = progress + mouseProgress
-  startX = x
-  animate()
-}
-
-const handleMouseDown = e => {
-  isDown = true
-  startX = e.clientX || (e.touches && e.touches[0].clientX) || 0
-}
-
-const handleMouseUp = () => {
-  isDown = false
-}
-
-/*--------------------
-Listeners
---------------------*/
-document.addEventListener('mousewheel', handleWheel)
-document.addEventListener('mousedown', handleMouseDown)
-document.addEventListener('mousemove', handleMouseMove)
-document.addEventListener('mouseup', handleMouseUp)
-document.addEventListener('touchstart', handleMouseDown)
-document.addEventListener('touchmove', handleMouseMove)
-document.addEventListener('touchend', handleMouseUp)
